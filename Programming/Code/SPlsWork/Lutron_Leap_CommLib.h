@@ -7,20 +7,29 @@ namespace Lutron.Leap.CommLib.ProtocolSupport;
          class ButtonMode;
          class LEDState;
          class EmergencyStateTypes;
+         class ActiveState;
          class OccupiedStateTypes;
          class FanSpeedTypes;
+         class EnabledTypes;
          class ZoneMode;
+         class HvacOperatingMode;
          class ZoneObjType;
          class CCOLevel;
          class ShadeMode;
+         class ControlType;
          class AvailabilityTypes;
+         class TemperatureScales;
          class ReceptacleLevel;
+         class HvacOperatingStatus;
+         class HvacFanMode;
          class ButtonEventState;
          class ButtonEventFeedback;
          class SpectrumTuningLevelType;
+         class AreaMode;
          class ContextType;
          class CommandType;
          class LoadShedState;
+         class HvacFanStatus;
     static class SwitchedLevel // enum
     {
         static SIGNED_LONG_INTEGER Unknown;
@@ -128,6 +137,13 @@ namespace Lutron.Leap.CommLib.ProtocolSupport;
         static SIGNED_LONG_INTEGER Active;
     };
 
+    static class ActiveState // enum
+    {
+        static SIGNED_LONG_INTEGER Unknown;
+        static SIGNED_LONG_INTEGER Active;
+        static SIGNED_LONG_INTEGER Inactive;
+    };
+
     static class OccupiedStateTypes // enum
     {
         static SIGNED_LONG_INTEGER Unknown;
@@ -144,6 +160,12 @@ namespace Lutron.Leap.CommLib.ProtocolSupport;
         static SIGNED_LONG_INTEGER High;
     };
 
+    static class EnabledTypes // enum
+    {
+        static SIGNED_LONG_INTEGER Disabled;
+        static SIGNED_LONG_INTEGER Enabled;
+    };
+
     static class ZoneMode // enum
     {
         static SIGNED_LONG_INTEGER Unknown;
@@ -151,6 +173,20 @@ namespace Lutron.Leap.CommLib.ProtocolSupport;
         static SIGNED_LONG_INTEGER Switched;
         static SIGNED_LONG_INTEGER CCO;
         static SIGNED_LONG_INTEGER Receptacle;
+        static SIGNED_LONG_INTEGER SingleSetPointHvac;
+        static SIGNED_LONG_INTEGER DualSetPointHvac;
+    };
+
+    static class HvacOperatingMode // enum
+    {
+        static SIGNED_LONG_INTEGER Unknown;
+        static SIGNED_LONG_INTEGER Off;
+        static SIGNED_LONG_INTEGER Heat;
+        static SIGNED_LONG_INTEGER Cool;
+        static SIGNED_LONG_INTEGER Auto;
+        static SIGNED_LONG_INTEGER EmergencyHeat;
+        static SIGNED_LONG_INTEGER Fan;
+        static SIGNED_LONG_INTEGER Dry;
     };
 
     static class ZoneObjType // enum
@@ -170,6 +206,25 @@ namespace Lutron.Leap.CommLib.ProtocolSupport;
         static SIGNED_LONG_INTEGER Unknown;
         static SIGNED_LONG_INTEGER Lift;
         static SIGNED_LONG_INTEGER LiftAndTilt;
+        static SIGNED_LONG_INTEGER LiftAndTiltWhenClosed;
+    };
+
+    static class ControlType // enum
+    {
+        static SIGNED_LONG_INTEGER Dimmed;
+        static SIGNED_LONG_INTEGER Switched;
+        static SIGNED_LONG_INTEGER SpectrumTune;
+        static SIGNED_LONG_INTEGER WhiteTune;
+        static SIGNED_LONG_INTEGER Shade;
+        static SIGNED_LONG_INTEGER ShadeWithTilt;
+        static SIGNED_LONG_INTEGER ShadeWithTiltWhenClosed;
+        static SIGNED_LONG_INTEGER Receptacle;
+        static SIGNED_LONG_INTEGER CCO;
+        static SIGNED_LONG_INTEGER FanSpeed;
+        static SIGNED_LONG_INTEGER Tilt;
+        static SIGNED_LONG_INTEGER OpenCloseStop;
+        static SIGNED_LONG_INTEGER SingleSetPointHVAC;
+        static SIGNED_LONG_INTEGER DualSetPointHVAC;
     };
 
     static class AvailabilityTypes // enum
@@ -180,10 +235,43 @@ namespace Lutron.Leap.CommLib.ProtocolSupport;
         static SIGNED_LONG_INTEGER Available;
     };
 
+    static class TemperatureScales // enum
+    {
+        static SIGNED_LONG_INTEGER Fahrenheit;
+        static SIGNED_LONG_INTEGER Celsius;
+    };
+
     static class ReceptacleLevel // enum
     {
         static SIGNED_LONG_INTEGER Off;
         static SIGNED_LONG_INTEGER On;
+    };
+
+    static class HvacOperatingStatus // enum
+    {
+        static SIGNED_LONG_INTEGER HeatLast;
+        static SIGNED_LONG_INTEGER HeatStageOne;
+        static SIGNED_LONG_INTEGER HeatStageTwo;
+        static SIGNED_LONG_INTEGER HeatStageThree;
+        static SIGNED_LONG_INTEGER CoolLast;
+        static SIGNED_LONG_INTEGER CoolStageOne;
+        static SIGNED_LONG_INTEGER CoolStageTwo;
+        static SIGNED_LONG_INTEGER Off;
+        static SIGNED_LONG_INTEGER EmergencyHeat;
+        static SIGNED_LONG_INTEGER Dry;
+    };
+
+    static class HvacFanMode // enum
+    {
+        static SIGNED_LONG_INTEGER Unknown;
+        static SIGNED_LONG_INTEGER Auto;
+        static SIGNED_LONG_INTEGER On;
+        static SIGNED_LONG_INTEGER Cycle;
+        static SIGNED_LONG_INTEGER NoFan;
+        static SIGNED_LONG_INTEGER High;
+        static SIGNED_LONG_INTEGER Medium;
+        static SIGNED_LONG_INTEGER Low;
+        static SIGNED_LONG_INTEGER Top;
     };
 
     static class ButtonEventState // enum
@@ -212,6 +300,13 @@ namespace Lutron.Leap.CommLib.ProtocolSupport;
         static SIGNED_LONG_INTEGER Vibrancy;
     };
 
+    static class AreaMode // enum
+    {
+        static SIGNED_LONG_INTEGER Unknown;
+        static SIGNED_LONG_INTEGER DimLevel;
+        static SIGNED_LONG_INTEGER Switched;
+    };
+
     static class ContextType // enum
     {
         static SIGNED_LONG_INTEGER Uknown;
@@ -236,12 +331,337 @@ namespace Lutron.Leap.CommLib.ProtocolSupport;
         static SIGNED_LONG_INTEGER GoToCCOLevel;
         static SIGNED_LONG_INTEGER GoToFanSpeed;
         static SIGNED_LONG_INTEGER Activate;
+        static SIGNED_LONG_INTEGER GoToGroupLightingLevel;
+        static SIGNED_LONG_INTEGER GoToScene;
+        static SIGNED_LONG_INTEGER GoToShadeLevelWithTiltWhenClosed;
+        static SIGNED_LONG_INTEGER GoToWhiteTuningLevel;
     };
 
     static class LoadShedState // enum
     {
         static SIGNED_LONG_INTEGER Disabled;
         static SIGNED_LONG_INTEGER Enabled;
+    };
+
+    static class HvacFanStatus // enum
+    {
+        static SIGNED_LONG_INTEGER Unknown;
+        static SIGNED_LONG_INTEGER High;
+        static SIGNED_LONG_INTEGER Medium;
+        static SIGNED_LONG_INTEGER Low;
+        static SIGNED_LONG_INTEGER Off;
+    };
+
+namespace Lutron.Leap.CommLib.Models.Bodies.SubClasses;
+        // class declarations
+         class SetPoint;
+         class SetPointRange;
+         class TemperatureRange;
+         class SetPointHVACProperties;
+         class SingleSetPointHVACProperties;
+         class DualSetPointHVACProperties;
+         class SingleSetPointHvacStatus;
+         class EcoModeProperties;
+         class ColorTuningStatus;
+         class XYTuningLevel;
+         class HSVTuningLevel;
+         class WhiteTuningLevel;
+         class VibrancyStatus;
+         class HvacOperatingStatuses;
+         class DualSetPointHvacStatus;
+     class SetPoint 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+    };
+
+     class SetPointRange 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        TemperatureRange Fahrenheit;
+        TemperatureRange Celsius;
+    };
+
+     class TemperatureRange 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+    };
+
+     class SetPointHVACProperties 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        INTEGER_FUNCTION SupportsTemperatureScale ( TemperatureScales scale );
+        INTEGER_FUNCTION SupportsFanModes ( HvacFanMode fanMode );
+        INTEGER_FUNCTION SupportsOperatingModes ( HvacOperatingMode operatingMode );
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        EcoModeProperties EcoModeProperties;
+        INTEGER EcoModeActiveState;
+        INTEGER EcoModeEnabledState;
+    };
+
+     class SingleSetPointHVACProperties 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        INTEGER_FUNCTION SupportsTemperatureScale ( TemperatureScales scale );
+        INTEGER_FUNCTION SupportsFanModes ( HvacFanMode fanMode );
+        INTEGER_FUNCTION SupportsOperatingModes ( HvacOperatingMode operatingMode );
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        SetPointRange SetPointRange;
+        EcoModeProperties EcoModeProperties;
+        INTEGER EcoModeActiveState;
+        INTEGER EcoModeEnabledState;
+    };
+
+     class DualSetPointHVACProperties 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        INTEGER_FUNCTION SupportsTemperatureScale ( TemperatureScales scale );
+        INTEGER_FUNCTION SupportsFanModes ( HvacFanMode fanMode );
+        INTEGER_FUNCTION SupportsOperatingModes ( HvacOperatingMode operatingMode );
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        SetPointRange HeatingSetPointRange;
+        SetPointRange CoolingSetPointRange;
+        SetPointRange HeatingCoolingDelta;
+        EcoModeProperties EcoModeProperties;
+        INTEGER EcoModeActiveState;
+        INTEGER EcoModeEnabledState;
+    };
+
+     class SingleSetPointHvacStatus 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        SetPoint SetPoint;
+        SetPoint CurrentTemperature;
+        HvacOperatingStatuses OperatingStatuses;
+    };
+
+     class EcoModeProperties 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        ActiveState ActiveState;
+        EnabledTypes EnabledState;
+    };
+
+     class ColorTuningStatus 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        XYTuningLevel XYTuningLevel;
+        HSVTuningLevel HSVTuningLevel;
+        WhiteTuningLevel WhiteTuningLevel;
+    };
+
+     class XYTuningLevel 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+    };
+
+     class HSVTuningLevel 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        INTEGER Hue;
+        INTEGER Saturation;
+    };
+
+     class WhiteTuningLevel 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        INTEGER Kelvin;
+    };
+
+     class VibrancyStatus 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+    };
+
+     class HvacOperatingStatuses 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        INTEGER_FUNCTION ActiveOperatingStatus ( HvacOperatingStatus operatingStatus );
+        FUNCTION set_Item ( SIGNED_LONG_INTEGER index , HvacOperatingStatus value );
+        FUNCTION Add ( HvacOperatingStatus item );
+        SIGNED_LONG_INTEGER_FUNCTION BinarySearch ( HvacOperatingStatus item );
+        FUNCTION Clear ();
+        FUNCTION CopyTo ( HvacOperatingStatus array[] );
+        SIGNED_LONG_INTEGER_FUNCTION IndexOf ( HvacOperatingStatus item );
+        FUNCTION Insert ( SIGNED_LONG_INTEGER index , HvacOperatingStatus item );
+        SIGNED_LONG_INTEGER_FUNCTION LastIndexOf ( HvacOperatingStatus item );
+        FUNCTION RemoveAt ( SIGNED_LONG_INTEGER index );
+        FUNCTION RemoveRange ( SIGNED_LONG_INTEGER index , SIGNED_LONG_INTEGER count );
+        FUNCTION Reverse ();
+        FUNCTION Sort ();
+        FUNCTION TrimExcess ();
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        SIGNED_LONG_INTEGER Capacity;
+        SIGNED_LONG_INTEGER Count;
+    };
+
+     class DualSetPointHvacStatus 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        SetPoint CoolingSetPoint;
+        SetPoint HeatingSetPoint;
+        SetPoint CurrentTemperature;
+        HvacOperatingStatuses OperatingStatuses;
     };
 
 namespace Lutron.Leap.CommLib.Event_Arguments;
@@ -256,11 +676,13 @@ namespace Lutron.Leap.CommLib.Event_Arguments;
          class LevelEventArgs;
          class OccupiedStatusEventArgs;
          class OccupancyStatus;
+         class HvacOperatingStatusesEventArgs;
          class EmergencyEventArgs;
          class CCOLevelEventArgs;
          class DimLevelEventArgs;
          class SwitchedLevelEventArgs;
          class FanSpeedEventArgs;
+         class HvacPropertiesEventArgs;
          class OccupiedEventArgs;
          class InitializationEventArgs;
          class ButtonEventArgs;
@@ -426,6 +848,23 @@ namespace Lutron.Leap.CommLib.Event_Arguments;
         INTEGER Status;
     };
 
+     class HvacOperatingStatusesEventArgs 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        HvacOperatingStatuses Payload;
+    };
+
      class EmergencyEventArgs 
     {
         // class delegates
@@ -509,6 +948,23 @@ namespace Lutron.Leap.CommLib.Event_Arguments;
 
         // class properties
         FanSpeedTypes Payload;
+    };
+
+     class HvacPropertiesEventArgs 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        SetPointHVACProperties Payload;
     };
 
      class OccupiedEventArgs 
@@ -633,6 +1089,7 @@ namespace Lutron.Leap.CommLib.Event_Arguments;
 namespace Lutron.Leap.CommLib.ComponentStates;
         // class declarations
          class OccupiedComponentState;
+         class HvacOperatingStatusesComponentState;
          class BatteryComponentState;
          class LoadShedComponentState;
          class FloatComponentState;
@@ -662,6 +1119,27 @@ namespace Lutron.Leap.CommLib.ComponentStates;
 
         // class properties
         LONG_INTEGER Id;
+    };
+
+     class HvacOperatingStatusesComponentState 
+    {
+        // class delegates
+
+        // class events
+        EventHandler OnProcessUpdate ( HvacOperatingStatusesComponentState sender, HvacOperatingStatusesEventArgs args );
+
+        // class functions
+        FUNCTION UpdateState ( HvacOperatingStatuses statuses );
+        FUNCTION Reinitialize ();
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        HvacOperatingStatuses State;
+        HvacOperatingStatuses InitialState;
     };
 
      class BatteryComponentState 
@@ -922,12 +1400,18 @@ namespace Lutron.Leap.CommLib.Models.Bodies;
          class DimmedLevelParameters;
          class ShadeLevelParameters;
          class ShadeWithTiltLevelParameters;
+         class ShadeWithTiltWhenClosedLevelParameters;
          class SpectrumTuningLevelParameters;
          class CCOLevelParameters;
          class ReceptacleLevelParameters;
          class FanSpeedParameters;
+         class GroupLightingLevelParameters;
+         class GoToSceneParameters;
+         class CurrentScene;
+         class WhiteTuningLevelParameters;
          class AreaBody;
          class AreaStatus;
+         class ZoneDefinition;
          class LoadShedUpdateBody;
          class ButtonStatusBody;
          class ButtonStatus;
@@ -936,6 +1420,8 @@ namespace Lutron.Leap.CommLib.Models.Bodies;
          class MultiOccupancySensorBody;
          class EmergencyUpdateBody;
          class EmergencyActiveState;
+         class HvacZoneDefinitionBody;
+         class HvacZoneDefinition;
          class ZoneTypeGroupBody;
          class VersionUpdateBody;
          class VersionBody;
@@ -947,7 +1433,6 @@ namespace Lutron.Leap.CommLib.Models.Bodies;
          class LoadShedBody;
          class SystemLoadSheddingStatus;
          class SystemLoadShedding;
-           class ColorTuningStatus;
      class MultiDeviceBody 
     {
         // class delegates
@@ -997,6 +1482,8 @@ namespace Lutron.Leap.CommLib.Models.Bodies;
         // class properties
         STRING href[];
         ColorTuningStatus ColorTuningStatus;
+        SingleSetPointHvacStatus SingleSetPointHvacStatus;
+        DualSetPointHvacStatus DualSetPointHvacStatus;
     };
 
      class MultiZoneTypeGroupBody 
@@ -1347,10 +1834,14 @@ namespace Lutron.Leap.CommLib.Models.Bodies;
         DimmedLevelParameters DimmedLevelParameters;
         ShadeLevelParameters ShadeLevelParameters;
         ShadeWithTiltLevelParameters ShadeWithTiltLevelParameters;
+        ShadeWithTiltWhenClosedLevelParameters ShadeWithTiltWhenClosedLevelParameters;
         SpectrumTuningLevelParameters SpectrumTuningLevelParameters;
         CCOLevelParameters CCOLevelParameters;
         ReceptacleLevelParameters ReceptacleLevelParameters;
         FanSpeedParameters FanSpeedParameters;
+        GroupLightingLevelParameters GroupLightingLevelParameters;
+        GoToSceneParameters GoToSceneParameters;
+        WhiteTuningLevelParameters WhiteTuningLevelParameters;
     };
 
      class SwitchedLevelParameters 
@@ -1406,6 +1897,22 @@ namespace Lutron.Leap.CommLib.Models.Bodies;
     };
 
      class ShadeWithTiltLevelParameters 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+    };
+
+     class ShadeWithTiltWhenClosedLevelParameters 
     {
         // class delegates
 
@@ -1490,6 +1997,77 @@ namespace Lutron.Leap.CommLib.Models.Bodies;
         FanSpeedTypes FanSpeed;
     };
 
+     class GroupLightingLevelParameters 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        VibrancyStatus VibrancyStatus;
+        STRING FadeTime[];
+        ColorTuningStatus ColorTuningStatus;
+    };
+
+     class GoToSceneParameters 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        CurrentScene CurrentScene;
+    };
+
+     class CurrentScene 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        STRING href[];
+    };
+
+     class WhiteTuningLevelParameters 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        WhiteTuningLevel WhiteTuningLevel;
+        STRING FadeTime[];
+    };
+
      class AreaBody 
     {
         // class delegates
@@ -1522,6 +2100,28 @@ namespace Lutron.Leap.CommLib.Models.Bodies;
 
         // class properties
         STRING href[];
+        ColorTuningStatus ColorTuningStatus;
+        SingleSetPointHvacStatus SingleSetPointHvacStatus;
+        DualSetPointHvacStatus DualSetPointHvacStatus;
+    };
+
+     class ZoneDefinition 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        STRING href[];
+        STRING Name[];
+        ControlType ControlType;
     };
 
      class LoadShedUpdateBody 
@@ -1656,6 +2256,44 @@ namespace Lutron.Leap.CommLib.Models.Bodies;
 
         // class properties
         EmergencyStateTypes ActiveState;
+    };
+
+     class HvacZoneDefinitionBody 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        HvacZoneDefinition Zone;
+    };
+
+     class HvacZoneDefinition 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        DualSetPointHVACProperties DualSetPointHVACProperties;
+        SingleSetPointHVACProperties SingleSetPointHVACProperties;
+        STRING href[];
+        STRING Name[];
+        ControlType ControlType;
     };
 
      class ZoneTypeGroupBody 
@@ -1886,21 +2524,51 @@ namespace Lutron.Leap.CommLib.LeapSupport;
 
 namespace Lutron.Leap.CommLib.Components;
         // class declarations
+         class OpenCloseStopComponent;
          class AreaComponent;
          class ZoneComponent;
+         class HvacComponent;
          class ViveLoadShedComponent;
          class LEDComponent;
+         class LEDInputControl;
          class ViveZoneTypeGroupComponent;
          class ViveAreaComponent;
          class ButtonComponent;
          class ViveButtonComponent;
+         class PassthruComponent;
          class FanComponent;
+         class DaliComponent;
          class ViveOccupancySensorComponent;
          class ViveDeviceComponent;
          class ViveEmergencyStateComponent;
          class ShadeComponent;
          class ViveSceneComponent;
+         class AreaControlComponent;
          class SpectrumComponent;
+     class OpenCloseStopComponent 
+    {
+        // class delegates
+
+        // class events
+        EventHandler OnInitializationChange ( OpenCloseStopComponent sender, InitializationEventArgs args );
+
+        // class functions
+        FUNCTION Configure ( INTEGER CommandProcessorId , LONG_INTEGER ZoneId );
+        FUNCTION Raise ();
+        FUNCTION Lower ();
+        FUNCTION Stop ();
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        LONG_INTEGER ZoneId;
+        INTEGER Id;
+        INTEGER CommandProcessorId;
+    };
+
      class AreaComponent 
     {
         // class delegates
@@ -1962,6 +2630,42 @@ namespace Lutron.Leap.CommLib.Components;
         INTEGER CommandProcessorId;
     };
 
+     class HvacComponent 
+    {
+        // class delegates
+
+        // class events
+        EventHandler OnInitializationChange ( HvacComponent sender, InitializationEventArgs args );
+        EventHandler OnCurrentTemperatureChange ( HvacComponent sender, LevelEventArgs args );
+        EventHandler OnSingleSetPointTemperatureChange ( HvacComponent sender, LevelEventArgs args );
+        EventHandler OnCoolSetPointTemperatureChange ( HvacComponent sender, LevelEventArgs args );
+        EventHandler OnHeatSetPointTemperatureChange ( HvacComponent sender, LevelEventArgs args );
+        EventHandler OnOperatingModeChange ( HvacComponent sender, LevelEventArgs args );
+        EventHandler OnFanModeChange ( HvacComponent sender, LevelEventArgs args );
+        EventHandler OnFanStatusChange ( HvacComponent sender, LevelEventArgs args );
+        EventHandler OnHvacPropertiesChange ( HvacComponent sender, HvacPropertiesEventArgs args );
+        EventHandler OnHvacOperatingStatusesChange ( HvacComponent sender, HvacOperatingStatusesEventArgs args );
+
+        // class functions
+        FUNCTION SetTemperature ( INTEGER temp );
+        FUNCTION SetCoolTemperature ( INTEGER temp );
+        FUNCTION SetHeatTemperature ( INTEGER temp );
+        FUNCTION SetFanMode ( INTEGER mode );
+        FUNCTION SetOperatingMode ( INTEGER mode );
+        FUNCTION Configure ( INTEGER CommandProcessorId , INTEGER ZoneMode , LONG_INTEGER ZoneId , LONG_INTEGER TemperatureScale );
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        ZoneMode ZoneMode;
+        LONG_INTEGER ZoneId;
+        INTEGER Id;
+        INTEGER CommandProcessorId;
+    };
+
      class ViveLoadShedComponent 
     {
         // class delegates
@@ -2002,6 +2706,7 @@ namespace Lutron.Leap.CommLib.Components;
         // class functions
         FUNCTION Configure ( INTEGER CommandProcessorId );
         FUNCTION AddLEDStatus ( LONG_INTEGER Id );
+        FUNCTION SetLEDControl ( LONG_INTEGER Id , INTEGER State );
         SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
         STRING_FUNCTION ToString ();
 
@@ -2133,6 +2838,30 @@ namespace Lutron.Leap.CommLib.Components;
         INTEGER Id;
     };
 
+     class PassthruComponent 
+    {
+        // class delegates
+
+        // class events
+
+        // class functions
+        FUNCTION ProcessSubscription ( LeapBaseMessage response );
+        FUNCTION ProcessResponse ( LeapBaseMessage response , LeapBaseMessage request );
+        FUNCTION GetInitialized ();
+        FUNCTION Reinitialize ();
+        FUNCTION Configure ( INTEGER CommandProcessorId );
+        FUNCTION SendJson ( STRING msg );
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        INTEGER Id;
+        INTEGER CommandProcessorId;
+    };
+
      class FanComponent 
     {
         // class delegates
@@ -2155,6 +2884,45 @@ namespace Lutron.Leap.CommLib.Components;
         INTEGER __class_id__;
 
         // class properties
+        LONG_INTEGER ZoneId;
+        INTEGER Id;
+        INTEGER CommandProcessorId;
+    };
+
+     class DaliComponent 
+    {
+        // class delegates
+
+        // class events
+        EventHandler OnWhiteTuningLevelChange ( DaliComponent sender, LevelEventArgs args );
+        EventHandler OnInitializationChange ( DaliComponent sender, InitializationEventArgs args );
+        EventHandler OnSwitchedLevelChange ( DaliComponent sender, SwitchedLevelEventArgs args );
+        EventHandler OnDimLevelChange ( DaliComponent sender, DimLevelEventArgs args );
+        EventHandler OnCCOLevelChange ( DaliComponent sender, CCOLevelEventArgs args );
+        EventHandler OnReceptacleLevelChange ( DaliComponent sender, ReceptacleLevelEventArgs args );
+
+        // class functions
+        FUNCTION SetDimLevel ( INTEGER Level );
+        FUNCTION SetWhiteTuningLevel ( INTEGER Kelvin );
+        FUNCTION Configure ( INTEGER CommandProcessorId , INTEGER ZoneMode , LONG_INTEGER ZoneId );
+        FUNCTION Raise ();
+        FUNCTION Lower ();
+        FUNCTION Stop ();
+        FUNCTION SwitchOn ();
+        FUNCTION SwitchOff ();
+        FUNCTION ReceptacleOn ();
+        FUNCTION ReceptacleOff ();
+        FUNCTION CCOLevelOpen ();
+        FUNCTION CCOLevelClose ();
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        SIGNED_INTEGER FadeTime;
+        ZoneMode ZoneMode;
         LONG_INTEGER ZoneId;
         INTEGER Id;
         INTEGER CommandProcessorId;
@@ -2299,6 +3067,35 @@ namespace Lutron.Leap.CommLib.Components;
         INTEGER Id;
     };
 
+     class AreaControlComponent 
+    {
+        // class delegates
+
+        // class events
+        EventHandler OnInitializationChange ( AreaControlComponent sender, InitializationEventArgs args );
+        EventHandler OnDimLevelChange ( AreaControlComponent sender, DimLevelEventArgs args );
+
+        // class functions
+        FUNCTION Configure ( INTEGER CommandProcessorId , LONG_INTEGER AreaId );
+        FUNCTION SetDimLevel ( INTEGER Level );
+        FUNCTION SetVibrancyLevel ( INTEGER Level );
+        FUNCTION SetHueSaturationLevel ( INTEGER Hue , INTEGER Saturation );
+        FUNCTION SetWhiteTuningLevel ( INTEGER Kelvin );
+        FUNCTION SetColorXYLevel ( INTEGER X , INTEGER Y );
+        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
+        STRING_FUNCTION ToString ();
+
+        // class variables
+        INTEGER __class_id__;
+
+        // class properties
+        SIGNED_INTEGER FadeTime;
+        AreaMode AreaMode;
+        LONG_INTEGER AreaId;
+        INTEGER Id;
+        INTEGER CommandProcessorId;
+    };
+
      class SpectrumComponent 
     {
         // class delegates
@@ -2370,82 +3167,6 @@ namespace Lutron.Leap.CommLib.Components.SubComponents;
          class LeapScene;
          class LeapButton;
 
-namespace Lutron.Leap.CommLib.Models.Bodies.SubClasses;
-        // class declarations
-         class ColorTuningStatus;
-         class XYTuningLevel;
-         class HSVTuningLevel;
-         class WhiteTuningLevel;
-     class ColorTuningStatus 
-    {
-        // class delegates
-
-        // class events
-
-        // class functions
-        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
-        STRING_FUNCTION ToString ();
-
-        // class variables
-        INTEGER __class_id__;
-
-        // class properties
-        XYTuningLevel XYTuningLevel;
-        HSVTuningLevel HSVTuningLevel;
-        WhiteTuningLevel WhiteTuningLevel;
-    };
-
-     class XYTuningLevel 
-    {
-        // class delegates
-
-        // class events
-
-        // class functions
-        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
-        STRING_FUNCTION ToString ();
-
-        // class variables
-        INTEGER __class_id__;
-
-        // class properties
-    };
-
-     class HSVTuningLevel 
-    {
-        // class delegates
-
-        // class events
-
-        // class functions
-        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
-        STRING_FUNCTION ToString ();
-
-        // class variables
-        INTEGER __class_id__;
-
-        // class properties
-        INTEGER Hue;
-        INTEGER Saturation;
-    };
-
-     class WhiteTuningLevel 
-    {
-        // class delegates
-
-        // class events
-
-        // class functions
-        SIGNED_LONG_INTEGER_FUNCTION GetHashCode ();
-        STRING_FUNCTION ToString ();
-
-        // class variables
-        INTEGER __class_id__;
-
-        // class properties
-        INTEGER Kelvin;
-    };
-
 namespace Lutron.Leap.CommLib;
         // class declarations
          class CommandProcessor;
@@ -2465,6 +3186,7 @@ namespace Lutron.Leap.CommLib;
         FUNCTION Connect ();
         FUNCTION Disconnect ();
         FUNCTION SendMessage ( LeapBaseMessage msg );
+        FUNCTION SendRawJson ( STRING str );
         FUNCTION FailedResponse ();
         SIGNED_LONG_INTEGER_FUNCTION GetHeartbeatTime ();
         FUNCTION GetInitialized ();
@@ -2499,6 +3221,7 @@ namespace Lutron.Leap.CommLib;
         FUNCTION Connect ();
         FUNCTION Disconnect ();
         FUNCTION SendMessage ( LeapBaseMessage msg );
+        FUNCTION SendRawJson ( STRING str );
         FUNCTION FailedResponse ();
         SIGNED_LONG_INTEGER_FUNCTION GetHeartbeatTime ();
         FUNCTION GetInitialized ();

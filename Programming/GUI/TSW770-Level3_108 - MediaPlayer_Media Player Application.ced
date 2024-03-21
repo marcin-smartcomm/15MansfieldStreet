@@ -10,7 +10,7 @@ VTProeVer=6.2.02
 ObjTp=Symbol
 Name=TSW770-Level3_108 - MediaPlayer_Media Player Application.ced
 Hint=Media Player Application (Smart Object ID=18)
-Code=2
+Code=3
 SGControlType=Media Player Application
 SGControlName=Media Player Application
 GUID=E182BEAC-496F-4579-B0D6-A2029C00B838
@@ -60,14 +60,14 @@ OutputList3SigType3=Serial
 ParamCue1=SmartObjectId
 ParamSigType1=Constant
 MPp=1
-Pp1=2
-CedH=2
+Pp1=3
+CedH=3
 SmartObjId=18d
 ]
 ; Parameter Properties for Smart Object ID
 [
 ObjTp=Dp
-H=2
+H=3
 Tp=1
 HD=TRUE
 DV=18d
@@ -80,7 +80,7 @@ Sgn=0
 ; Smart Objects Definition section
 [
 ObjTp=CED
-H=2
+H=3
 Name=TSW770-Level3_108 - MediaPlayer_Media Player Application.ced
 ;Cedver is the version of the Smart Graphics control, not the CED file format.
 ;If the control definition changes, increment this.
