@@ -1,0 +1,5 @@
+client: https://cdn.watchguard.com/SoftwareCenter/Files/MUVPN_SSL/12_10/WG-MVPN-SSL_12_10.exe
+
+server: 185.247.172.88
+user: smartcomm
+pass: 5m@rtc0mm
